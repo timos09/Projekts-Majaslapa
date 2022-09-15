@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sakums.apps.SakumsConfig'
 ]
 
 MIDDLEWARE = [
@@ -109,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'lv-LV'
 
-TIME_ZONE = 'GMT+3'
+TIME_ZONE = 'GMT'
 
 USE_I18N = True
 
