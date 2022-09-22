@@ -23,6 +23,12 @@ class Category(MPTTModel):
     slug = models.SlugField(verbose_name=_('Kategorijas drošs URL'), max_length=250, unique = True, )
     parent = TreeForeignKey("self", on_delete=models.CASCADE, null=True, blank=True, related_name = 'children',verbose_name = ('Līdzīgie produkti'))
     is_active = models.BooleanField(default=True,verbose_name = ('Ir aktīvs'))
+    image =models.ImageField(
+        verbose_name= 'Attēls priekš kategorijas',
+        help_text='Augšupielādējiet produkta attēlu',
+        upload_to='images_category/',
+        default='images_category/default.png'
+    )
 
     class MPTTMeta:
         order_insertion_by = ['name']
