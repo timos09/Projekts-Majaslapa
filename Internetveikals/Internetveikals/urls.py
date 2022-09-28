@@ -21,13 +21,13 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', sakums),
-    path('account/', account),
-    path('about/', about),
-    path('contact/', contact),
-    path('login/', login),
-    path('register/', register),
-    path('search/', search),
+    path('', sakums, name='sakums'),
+    path('account/', account, name='account'),
+    path('about/', about, name='about'),
+    path('contact/', contact, name='contact'),
+    path('login/', login, name='login'),
+    path('register/', register, name='register'),
+    path('search/', search, name='search'),
 
 ]
 

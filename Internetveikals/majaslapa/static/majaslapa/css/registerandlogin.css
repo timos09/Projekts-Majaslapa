@@ -1,0 +1,100 @@
+
+/*Under top menu*/
+
+.LoginMain{
+    width: 430px;
+    height: 500px;
+    padding: 2rem 1rem;
+    margin: 100px auto;
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+h1{
+    font-size: 2rem;
+    color: #07001f;
+    margin-bottom: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+
+}
+.LoginMain form input{
+    width: 92%;
+    outline: none;
+    border: 1px solid #fff;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    background: #e4e4e4;
+    font-size: 10px;
+}
+.reg_log{
+    margin-top: 30px;
+}
+button{
+    font-size:15px;
+    margin-top: 1.8rem;
+    padding: 10px 0;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    width: 90%;
+    color: #fff;
+    cursor:pointer;
+    background: rgba(99, 180, 61, 0.7);
+
+}
+
+button:hover{
+    background:chartreuse ;
+}
+.register_button{
+    margin-top: -100px;
+}
+.login_button{
+    margin-top: 10px;
+}
+.terms{
+    margin-top: 0.2rem;
+}
+.terms input{
+    height: 1em;
+    width:1em;
+    vertical-align:middle;
+    cursor:pointer;
+}
+.terms label{
+    font-size:0.7rem;
+}
+.terms a{
+    color: #6FB64D;
+    text-decoration: none;
+
+}
+.member{
+    font-size: 0.8rem;
+    margin-top: 1.4rem;
+    color: #636363;
+}
+.member a{
+    color: #6FB64D;
+    text-decoration: none;
+
+}
+.Login_here{
+    font-size: 20px;
+}
+.termsand{
+    font-size: 15px;
+}
+.recover{
+    text-align: right;
+    font-size: 0.7rem;
+    margin: 5rem 1.4rem 0 0;
+}
+.recover a{
+    text-decoration: none;
+    color: #6FB64D;
+}
+/* LOGIN AND REGISTER*/

@@ -1,0 +1,28 @@
+{% extends 'majaslapa/base.html' %}
+{% load static %}
+
+{% block title %}
+Reģistrēties
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static '/majaslapa/css/registerandlogin.css' %}">
+{% endblock %}
+
+
+{% block body %}
+    <div class="LoginMain">
+        <h1>Register</h1>
+        <form action="#">
+            <input type="text" placeholder="Username">
+            <input type="text" placeholder="Name">
+            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Re-enter Password">
+        </form>
+        <button>Register</button>
+        <a class="Or"><img  src="{% static 'majaslapa/image/OR.png' %}" width="330px" height="70px" margin-bottom="100px"></a>
+        <button class='register_button'>Login</button>
+        </div>
+    </div>
+
+{% endblock %}
