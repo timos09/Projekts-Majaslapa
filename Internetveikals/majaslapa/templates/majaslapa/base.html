@@ -19,22 +19,27 @@
         <div class="site_top_menu">
             <ul class="left_top">
                 <li class="left"><a class="about" href="{% url 'about' %}">About</a></li>
+                <a>|</a>
                 <li class="left"><a class="contact" href="{% url 'contact' %}">Contact</a></li>
             </ul>
 
             <ul class="right_top">
                 <li class="right1">
                     <img class='lvimg' src="{% static 'majaslapa/image/LV.png' %}" alt="lv">
-                    <a href="#">LV</a>
+                    <a class='LV' href="#">LV</a>
                 </li>
                 <li class="right1">
                     <img class="ukimg" src="{% static 'majaslapa/image/ENG.png' %}" alt="en">
                     <a class="EN" href="#">EN</a>
                 </li>
-                <img class="stick" src="{% static 'majaslapa/image/stick.png' %}" alt="en">
+                <a>|</a>
+                {% if request.user.is_authenticated %}
+                <li class="right"><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
                 <li class="right"><a href="{% url 'login' %}">Login</a></li>
-                <img class="stick" src="{% static 'majaslapa/image/stick.png' %}" alt="en">
+                <a>|</a>
                 <li class="right"><a href="{% url 'register' %}">Register</a></li>
+                {% endif %}
             </ul>
 
 
@@ -63,7 +68,6 @@
 
     {% block body %}{% endblock %}
 
-    {% block js %}{% endblock %}
-
 </body>
+{% block js %}{% endblock %}
 </html>

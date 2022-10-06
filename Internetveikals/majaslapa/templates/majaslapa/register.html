@@ -11,38 +11,36 @@ Reģistrēties
 
 
 {% block body %}
-
     <div class="LoginMain">
         <h1>Register</h1>
         <form method="POST" action="">
             {% csrf_token %}
 
-            {{form.username}}
-            {{form.email}}
-            {{form.password1}}
-            {{form.password2}}      
-            <input type="submit" name="submit" class="submit action-button" value="Reģistrēties" />
-        </form>
-        <a class="Or"><img  src="{% static 'majaslapa/image/OR.png' %}" width="330px" height="70px" margin-bottom="100px"></a>
-        <button class='register_button'>Login</button>
-        {% if form.errors %}
-        {% for field in form %}
-            {% for error in field.errors %}
-                <p> {{ error }} </p>
+            {% for f in form %}
+            {% comment %} <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p> {% endcomment %}
+            {{f}}
             {% endfor %}
-        {% endfor %}
-    {% endif %}
+
+        <input type="submit" name="submit" class="register_button" value="Reģistrēties" />
+        <a class="Or"><img  src="{% static 'majaslapa/image/OR.png' %}" width="330px" height="70px" panding-top: '100px' display: 'block'></a>
+
+        <a href='{% url 'login' %}'class='register_button'>Login</a>
+
+        <div class='eror'>
+            {{ form.errors }}
+        {% comment %} <a class='eror_logs'>{{ form.errors }}<a> {% endcomment %}
         </div>
+
     </div>
 
-{% endblock %}
+    {% endblock %}
 
-{% block js %}
-<script>
-  var form_fields = document.getElementsByTagName('input')
-  form_fields[2].placeholder = 'Lietotāj vārds'
-  form_fields[3].placeholder = 'E-pasts'
-  form_fields[4].placeholder = 'Parole'
-  form_fields[5].placeholder = 'Atkartot paroli'
-</script>
-{% endblock %}
+    {% block js %}
+    <script>
+      var form_fields = document.getElementsByTagName('input')
+      form_fields[2].placeholder = 'Lietotāj vārds'
+      form_fields[3].placeholder = 'E-pasts'
+      form_fields[4].placeholder = 'Parole'
+      form_fields[5].placeholder = 'Atkartot paroli'
+    </script>
+    {% endblock %}

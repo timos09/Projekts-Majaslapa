@@ -64,17 +64,20 @@ li,a{
 .ukimg{
     position: absolute;
     top: 12px;
-    right: 204px;
+
     width: 28px;
 
 }
 .lvimg{
     position: absolute;
-    top: 13px;
-    right: 268px;
+    top: 14px;
     width: 26px;
 }
 .EN{
+    padding-left: 30px;
+}
+
+.LV{
     padding-left: 30px;
 }
 /*site top*/

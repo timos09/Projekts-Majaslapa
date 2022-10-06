@@ -13,11 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from operator import index
+from re import template
 from majaslapa.views import *
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from django.urls import re_path as url
+from django.urls import include, re_path
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,12 +31,25 @@ urlpatterns = [
     path('account/', account, name='account'),
     path('about/', about, name='about'),
     path('contact/', contact, name='contact'),
-    path('login/', login, name='login'),
+    path('login/', loginpage, name='login'),
     path('register/', register, name='register'),
     path('search/', search, name='search'),
+    path('logout/', logoutUser, name='logout'),
+    path('accounts/', include('allauth.urls')),
+
+    path('reset_password/', auth_views.PasswordResetView.as_view(template_name='majaslapa/password_reset.html'), name='reset_password'),
+    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name='majaslapa/password_reset_sent.html'), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='majaslapa/password_reser_confirm.html'), name='password_reset_confirm'),
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(template_name='majaslapa/password_reser_done.html'), name='password_reset'),
+
+    path('i18n/',include('django.conf.urls.i18n'))
+
+
+
 
 ]
 
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

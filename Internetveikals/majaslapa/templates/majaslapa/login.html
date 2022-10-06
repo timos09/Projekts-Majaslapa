@@ -1,4 +1,6 @@
 {% extends 'majaslapa/base.html' %}
+{% load socialaccount %}
+{% providers_media_js %}
 {% load static %}
 
 {% block title %}
@@ -11,21 +13,28 @@ Pieslēgties
 
 
 {% block body %}
+    <form id="msform" method="POST">
+    {% csrf_token %}
         <div class="LoginMain">
             <h1>Login</h1>
-            <form action="#">
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
-            </form>
+                <input type="text" name='username' placeholder="Username" class='input'>
+                <input type="password" name='password' placeholder="Password" class='input'>
             <div class='reg_log'>
-                <button class='login_button'>Login</button>
+                <input type="submit" name="submit" class='register_button' value="Login" />
                 <a class="Or"><img  src="{% static 'majaslapa/image/OR.png' %}" width="330px" height="70px" margin-bottom="100px"></a>
-                <button class='register_button'>Register</button>
+                <a href='{% url 'register' %}' class='register_button'>Register</a>
             </div>
+            {% for message in messages %}
+            <p id="messages">{{message}}</p>
+          {% endfor %}
             <div class="member">
                 <div class="recover">
-                    <a href="#">Forgot Password?</a>
+                    <a href="{% url 'reset_password' %}">Forgot Password?</a>
                 </div>
+                <li class='google'>
+                    <a href="{% provider_login_url 'google' %}">Sign in google</a>
+                    <a href="{% provider_login_url "facebook" %}">Sign in Facebook</a>
+                </li>
             </div>
         </div>
 

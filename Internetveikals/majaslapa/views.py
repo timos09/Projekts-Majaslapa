@@ -1,15 +1,18 @@
 from django.shortcuts import render, redirect
 from .forms import  CreateUserForm
-# from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+
+# from majaslapa.register_login.utils import send_email_for_verify
+
+from django.contrib.auth import get_user_model
+
 
 User = get_user_model()
 
 # Create your views here.
-# from .models import *
-# from .forms import OrderForm, CreateUserForm
-# from .filters import OrderFilter
-
 def sakums(request):
     return render(request, 'majaslapa/home.html')
 
@@ -22,8 +25,21 @@ def about(request):
 def sakums(request):
     return render(request, 'majaslapa/home.html')
 
-def login(request):
-    return render(request, 'majaslapa/login.html')
+def loginpage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('sakums')
+        else:
+            messages.info(request, 'Nav pareizs lietotājvārds vai parole')
+
+    context = {}
+    return render(request, 'majaslapa/login.html', context)
 
 def register(request):
     form = CreateUserForm(request.POST)
@@ -43,3 +59,7 @@ def search(request):
 
 def contact(request):
     return render(request, 'majaslapa/contact.html')
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
