@@ -5,7 +5,7 @@
     width: 430px;
     height: auto;
     padding: 2rem 1rem;
-    margin: 100px auto;
+    margin: 50px auto;
     background-color: #fff;
     border-radius: 5px;
     text-align: center;
@@ -107,10 +107,25 @@ button:hover{
 .recover a{
     text-decoration: none;
     color: #6FB64D;
+
 }
+
+.eror{
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+    background-color: #fff;
+    border-left: 5px solid #e9ecef;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-left-color: #bd2130;
+
+}
+
 .eror li{
     color: rgb(255, 0, 0);
     margin-top: 10px;
+    border-left-color: #bd2130;
+    list-style-type: none;
 }
 
 .Or{
@@ -119,23 +134,30 @@ button:hover{
 
 .input{
     width: 92%;
+    margin-top: 10px;
     outline: none;
     border: 1px solid #fff;
     padding: 12px 20px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     border-radius: 20px;
     background: #e4e4e4;
     font-size: 16px;
 }
 
 #messages{
-    margin-top: 30px;
-    background-color: rgba(165, 26, 26, 0.411);
-    border-radius: 4px;
-    height: 30px;
-    width: auto;
-    color: red;
-    font-weight: bold;
-    text-align: center;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
+    background-color: #fff;
+    border-left: 5px solid #e9ecef;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-left-color: #bd2130;
+}
+
+.errorlist li{
+    color: rgb(0, 0, 0);
+    margin-top: 10px;
+    border-left-color: #c70014;
+    list-style-type: none;
 }
 /* LOGIN AND REGISTER*/

@@ -6,13 +6,15 @@ body{
     margin: 0;
     padding: 0;
 }
+
 li,a{
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 18px;
     color: #fff;
     text-decoration: none;
 }
+
 .site_top_menu{
     display: flex;
     justify-content: space-between;
@@ -20,38 +22,46 @@ li,a{
     background-color: #6FB64D;
     padding: 20px 15px;
     height: 0px;
-}
+ }
+
 .left_top{
      list-style: none;
-
 }
+
 .right_top{
     list-style: none;
-
 }
+
 .left_top li{
     display: inline-block;
     padding: 0px 22px;
 }
+
 .right_top li{
     display:inline-block;
 }
+
 .left_top li a{
     transition: all 0.3s ease 0s;
 }
+
 .right_top li a{
     transition: all 0.3s ease 0s;
 }
+
 .right_top li a:hover{
     color: chartreuse;
 }
+
 .left_top li a:hover{
     color: chartreuse;
 }
 
 .right{
     padding: 0px 10px;
+    display: block;
 }
+
 .right1{
     margin-right: 12px;
 }
@@ -59,26 +69,29 @@ li,a{
 .stick{
     width: 1px;
     position: absolute;
+    color: rgb(255, 255, 255);
 }
 
 .ukimg{
     position: absolute;
     top: 12px;
-
     width: 28px;
-
 }
+
 .lvimg{
     position: absolute;
     top: 14px;
     width: 26px;
 }
+
 .EN{
     padding-left: 30px;
+    display: block;
 }
 
 .LV{
     padding-left: 30px;
+    display: block;
 }
 /*site top*/
 
@@ -86,50 +99,43 @@ li,a{
     background-color: rgba(99, 180, 61, 0.7);
     height: 70px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-
 
 }
 .right_menu{
     list-style: none;
-    padding: 0 30px;
 }
 
 .right_menu li{
     justify-content: center;
     display: inline-block;
-
-
 }
+
 .cart{
     position: absolute;
     top: 67px;
     right: 250px;
 }
-.cartimg{
-    position: absolute;
-    top: 23px;
-    right: 110px;
-    width: 26px;
 
+.carticon{
+    position: absolute;
+    top: 60px;
+    right: 220px;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
 }
+
 .acc{
     position: absolute;
-    top: 67px;
+    top: 62px;
     right: 84px;
-}
-.accimgg{
-    width: 30px;
-    top: 50px;
-    right: 84px;
+    color: rgb(255, 255, 255);
 }
 
-.accimg{
-    margin-top: 6px;
-    margin-right: 20px;
+.acc i{
+    font-size: 25px;
+    margin-left: 5px;
 }
-
 
 .Logo{
     padding-left: 5px;
@@ -137,79 +143,59 @@ li,a{
     font-size: 30px;
     font-weight: 300;
 }
-.search{
-    justify-items: center;
-
-}
-.wrapper{
-    margin-left: -200px;
-}
-.search_box{
-    width: 900px;
-    height: 40px;
-    background-color: rgba(239, 239, 239, 1);
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    padding: 20px;
-
-}
-
-
-.search_box > i{
-    font-size: 15px;
-    color: #363636;
-    padding-right: 15px;
-    padding-bottom: 5px;
-
-}
-.search_box > input{
-    flex: 1;
-    height: 30px;
-    border: none;
-    outline: none;
-    font-size: 18px;
-    padding-right: 20px;
-    background-color: rgba(239, 239, 239, 1);
-
-}
-
-::-webkit-input-placeholder{
-    color: rgb(117, 117, 117);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    text-transform: inherit;
-
-}
-::-moz-input-placeholder{
-    color: rgb(117, 117, 117);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 15px;
-    text-transform: inherit;
-
-}
-::-ms-input-placeholder{
-    color: rgb(117, 117, 117);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 15px;
-    text-transform: inherit;
-}
-.close-button{
-    position: absolute;
-    left: 40px;
-    padding: 10px 25px;
-    border-radius: 50%;
-    border: none;
-
-}
 
 .right_menu a{
-
 transition: all 0.3s ease 0s;
 }
+
 .right_menu a:hover{
     color: chartreuse;
+}
+
+#search input[type="text"] {
+    display:inline;
+    margin-left: 300px;
+    background: no-repeat 10px 6px rgb(255, 255, 255);
+    border: none;
+    font:  16px Arial,Helvetica,Sans-serif;
+    width: 600px;
+    padding: 12px 20px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    transition: all 0.7s ease 0s;
+    }
+
+#search input[type="text"]:focus {
+    width: 700px;
+    }
+
+.search{
+    border: none;
+    height: 32px;
+    width: 600px;
+    padding: 0px 5px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-family: 'nunito';
+    color: #424242;
+    font-weight: 500px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 320px;
+}
+
+.search:focus{
+    outline: none;
+}
+
+
+
+@media (max-width: 1255px){
+    .search{
+        margin: 0;
+    }
+    .site_top_menu{
+        height: 0px;
+     }
 }

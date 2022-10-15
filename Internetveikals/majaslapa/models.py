@@ -11,6 +11,9 @@ from django.utils.translation import gettext_lazy as _
 from mptt.models import MPTTModel, TreeForeignKey
 
 
+# from django.contrib.auth.models import User
+# User._meta.get_field('email')._unique = True
+
 
 class Category(MPTTModel):
     name = models.CharField(

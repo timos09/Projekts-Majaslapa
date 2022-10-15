@@ -13,16 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from operator import index
-from re import template
 from majaslapa.views import *
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from django.urls import re_path as url
-from django.urls import include, re_path
 from django.contrib.auth import views as auth_views
+from django.conf.urls.i18n import i18n_patterns
+from majaslapa import views
 
 
 urlpatterns = [
@@ -36,6 +34,9 @@ urlpatterns = [
     path('search/', search, name='search'),
     path('logout/', logoutUser, name='logout'),
     path('accounts/', include('allauth.urls')),
+    path('activate/<uidb64>/<token>', views.activate, name='activate'),
+
+
 
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name='majaslapa/password_reset.html'), name='reset_password'),
     path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(template_name='majaslapa/password_reset_sent.html'), name='password_reset_done'),
@@ -47,7 +48,18 @@ urlpatterns = [
 
 
 
-]
+] + i18n_patterns(
+    path('', sakums, name='sakums'),
+    path('account/', account, name='account'),
+    path('about/', about, name='about'),
+    path('contact/', contact, name='contact'),
+    path('login/', loginpage, name='login'),
+    path('register/', register, name='register'),
+    path('search/', search, name='search'),
+    path('logout/', logoutUser, name='logout'),
+    path('accounts/', include('allauth.urls')),
+
+)
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 

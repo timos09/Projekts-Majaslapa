@@ -2,9 +2,10 @@
 {% load socialaccount %}
 {% providers_media_js %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-Pieslēgties
+{% trans 'Pieslēgties' %}
 {% endblock %}
 
 {% block css %}
@@ -15,25 +16,29 @@ Pieslēgties
 {% block body %}
     <form id="msform" method="POST">
     {% csrf_token %}
+
         <div class="LoginMain">
-            <h1>Login</h1>
-                <input type="text" name='username' placeholder="Username" class='input'>
-                <input type="password" name='password' placeholder="Password" class='input'>
-            <div class='reg_log'>
-                <input type="submit" name="submit" class='register_button' value="Login" />
-                <a class="Or"><img  src="{% static 'majaslapa/image/OR.png' %}" width="330px" height="70px" margin-bottom="100px"></a>
-                <a href='{% url 'register' %}' class='register_button'>Register</a>
-            </div>
+            <h1>{% trans 'Pieslēgties' %}</h1>
             {% for message in messages %}
             <p id="messages">{{message}}</p>
-          {% endfor %}
+            {% endfor %}
+                <input type="text" name='username' placeholder="{% trans 'Lietotājvārds' %}" class='input'>
+                <input type="password" name='password' placeholder="{% trans 'Parole' %}" class='input'>
+
+            <div class='reg_log'>
+                <input type="submit" name="submit" class='register_button' value="{% trans 'Pieslēgties' %}" />
+                <a class="Or"><img  src="{% static 'majaslapa/image/OR.png' %}" width="330px" height="70px" margin-bottom="100px"></a>
+                <a href='{% url 'register' %}' class='register_button'>{% trans 'Reģistrēties' %}</a>
+            </div>
+
             <div class="member">
                 <div class="recover">
-                    <a href="{% url 'reset_password' %}">Forgot Password?</a>
+                    <a href="{% url 'reset_password' %}">{% trans 'Aizmirsi paroli?' %}</a>
                 </div>
+
                 <li class='google'>
                     <a href="{% provider_login_url 'google' %}">Sign in google</a>
-                    <a href="{% provider_login_url "facebook" %}">Sign in Facebook</a>
+                    <a href="{% provider_login_url "facebook"%}">Sign in Facebook</a>
                 </li>
             </div>
         </div>

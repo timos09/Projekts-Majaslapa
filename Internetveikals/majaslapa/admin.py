@@ -3,6 +3,7 @@ from django.contrib import admin
 from django import forms
 from mptt.admin import MPTTModelAdmin
 from.models import Category, ProductType, ProductSpecification, Product, ProductSpecificationValue, ProductImage
+from modeltranslation.admin import TranslationAdmin
 
 # Register your models here.
 # admin.site.register(Category)
@@ -11,6 +12,8 @@ from.models import Category, ProductType, ProductSpecification, Product, Product
 # admin.site.register(Product)
 # admin.site.register(ProductSpecificationValue)
 # admin.site.register(ProductImage)
+
+
 
 admin.site.register(Category, MPTTModelAdmin)
 

@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+from django.utils.translation import gettext_lazy as _
 from msilib.schema import Media
 from pathlib import Path
 import os
@@ -27,12 +27,13 @@ SECRET_KEY = 'django-insecure-w1z&-=gbzj-n4gr31hmk@6!nj8^s^1(@pk=yq&%^p(-dhg)0a3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django_cleanup.apps.CleanupConfig',
     'django.contrib.admin',
     'mptt',
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'reset_migrations',
     'django.contrib.sites',
+    'modeltranslation',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -60,15 +62,6 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'APP': {
-            'client_id': '907545878739-h00bdkth0rg9dvlf13qjct7ou76qbkbm.apps.googleusercontent.com',
-            'secret': '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',
-            'key': ''
-        }
-    }
-}
 SOCIALACCOUNT_LOGIN_ON_GET = True
 LOGIN_REDIRECT_URL='/'
 
@@ -174,3 +167,21 @@ EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'balticctech@gmail.com'
 EMAIL_HOST_PASSWORD = 'tiviaukhubxumqfn'
+
+gettext = lambda s: s
+LANGUAGES = (
+    ('lv', gettext('Latvian')),
+    ('en', gettext('English'))
+)
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'lv'
+MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'en'
+
+JAZZMIN_SETTINGS = {\
+    "site_title": "Admins",
+    "site_header": "Admins lapa",
+    "site_brand": "Admin",
+    "login_logo": None,
+    "login_logo_dark": None,
+    "site_logo_classes": "img-circle",
+}
