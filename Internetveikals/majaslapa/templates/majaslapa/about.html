@@ -1,5 +1,61 @@
-{% extends 'majaslapa/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>about us</title>
+    <link rel="icon" href="{% static '/majaslapa/image/Logo.png' %} " >
+    <link rel="stylesheet" href="{% static '/majaslapa/css/base.css' %}">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="/Internetveikals/majaslapa/static/majaslapa/css/about.css">
+</head>
+<body>
 
-{% block title %}
-Par mums
-{% endblock %}
+        <div class="site_top_menu">
+            <ul class="left_top">
+                <li class="left"><a class="about" href="{% url 'about' %}"></a></li>
+                <b class ='stick'>|</b>
+                <li class="left"><a class="contact" href="{% url 'contact' %}"></a></li>
+            </ul>
+            <ul class="right_top">
+                <li class="right1">
+                    <img class='lvimg' src="{% static 'majaslapa/image/LV.png' %}" alt="lv">
+                    <a class='LV' href="/lv{{ request.get_full_path |slice:'3:'}}">LV</a>
+                </li>
+                <li class="right1">
+                    <img class="ukimg" src="{% static 'majaslapa/image/ENG.png' %}" alt="en">
+                    <a class="EN" href="/en{{ request.get_full_path |slice:'3:'}}">EN</a>
+                </li>
+                <b class ='stick'>|</b>
+                {% if request.user.is_authenticated %}
+                <li class="right"><a href="{% url 'logout' %}"></a></li>
+                {% else %}
+                <li class="right"><a href="{% url 'login' %}">{% trans 'Pieslēgties' %}</a></li>
+                <b class ='stick'>|</b>
+                <li class="right"><a href="{% url 'register' %}">{% trans 'Reģistrēties' %}</a></li>
+                {% endif %}
+            </ul>
+
+
+        </div>
+
+        <div class="site_undertop">
+            <div class="Logo">
+                <a class="Logo" href="{% url 'sakums' %}">BALTICTECH.com</a>
+            </div>
+            <div class="boxContainer">
+                            <input type="text" placeholder="Meklēt..." class="search" />
+            </div>
+            <ul class="right_menu">
+                <li class="cart"><a href="#">{% trans 'Grozs' %}</a></li>
+                <ion-icon name="cart-outline" class='carticon'></ion-icon>
+                <li class="acc"><a href="{% url 'account' %}">{% trans 'Profils' %}</a><i class="bi bi-person-circle"></i></li>
+            </ul>
+        </div>
+
+    {% block body %}{% endblock %}
+
+</body>
+{% block js %}{% endblock %}
+<script src='majaslapa/js/base.js'></script>
+</html>
